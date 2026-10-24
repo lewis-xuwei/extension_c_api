@@ -8,7 +8,7 @@
 typedef struct _flat_route {
   int size;
   int* route;
-} * _flat_route_t;
+}* _flat_route_t;
 
 static std::vector<int> alns(int data) {
   std::vector<int> vec(data);
@@ -19,7 +19,7 @@ static std::vector<int> alns(int data) {
   return vec;
 }
 
-LIB_API flat_route_t flat_route_new() {
+flat_route_t flat_route_new() {
   _flat_route_t flat_route = (_flat_route_t)malloc(sizeof(struct _flat_route));
   flat_route->size = 0;
   flat_route->route = NULL;
@@ -27,7 +27,7 @@ LIB_API flat_route_t flat_route_new() {
   return flat_route;
 }
 
-LIB_API int flat_route_exec(flat_route_t _flat_route, int data) {
+int flat_route_exec(flat_route_t _flat_route, int data) {
   if (data <= 0)
     return -1;
 
@@ -48,7 +48,7 @@ LIB_API int flat_route_exec(flat_route_t _flat_route, int data) {
   return 0;
 }
 
-LIB_API int flat_route_size(flat_route_t _flat_route) {
+int flat_route_size(flat_route_t _flat_route) {
   _flat_route_t flat_route = (_flat_route_t)_flat_route;
   if (NULL == flat_route)
     return -2;
@@ -56,7 +56,7 @@ LIB_API int flat_route_size(flat_route_t _flat_route) {
   return flat_route->size;
 }
 
-LIB_API int flat_route_get(flat_route_t _flat_route, int index) {
+int flat_route_get(flat_route_t _flat_route, int index) {
   _flat_route_t flat_route = (_flat_route_t)_flat_route;
   if (NULL == flat_route)
     return -2;
@@ -69,7 +69,7 @@ LIB_API int flat_route_get(flat_route_t _flat_route, int index) {
   return flat_route->route[index];
 }
 
-LIB_API void flat_route_free(flat_route_t _flat_route) {
+void flat_route_free(flat_route_t _flat_route) {
   _flat_route_t flat_route = (_flat_route_t)_flat_route;
   if (NULL != flat_route) {
     free(flat_route->route);

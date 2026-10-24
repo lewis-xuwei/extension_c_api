@@ -4,3 +4,4 @@ lib
 .history
 .vscode
 __pycache__
+obj
